@@ -14,7 +14,9 @@
     <!-- Mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
     <!-- Sharing -->
 	<meta property="og:title" content="Text Reminders App" /> 
 	<meta property="og:description" content="Sign up to get text reminders!" /> 
@@ -22,8 +24,27 @@
     content="http://voicent.com/newassets/images/omnichannel.PNG" /> 
 </head>
 <body>
+
 <!-- JS -->
 <script type="text/javascript" src="http://static.twilio.com/libs/twiliojs/1.0/twilio.min.js"></script>
+
+<form class="sign-up" style="width:50%">
+    <h1 class="sign-up-title">Sign up in seconds</h1>
+    <input type="text" class="sign-up-input" placeholder="What's your phone number?" autofocus>
+    <select class="sign-up-input">
+        <option value=" " disabled selected hidden>What do you want to be reminded about?</option>
+        <option value=" ">Did you write in your journal?</option>
+        <option value=" ">Did you take your medication?</option>
+        <option value=" ">Did you wish your mother, happy birthday?</option>
+    </select>
+    <select class="sign-up-input">
+        <option value=" " disabled selected hidden>How often do you need the reminder?</option>
+        <option value=" ">Every hour</option>
+        <option value=" ">Every day</option>
+        <option value=" ">Every week</option>
+    </select>
+    <input type="submit" value="Sign me up!" class="sign-up-button">
+</form>
 
 </body>
 </html>

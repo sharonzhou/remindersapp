@@ -9,3 +9,4 @@ lib
 *.pyo
 *.mp3
 *.swp
+local_settings.py
