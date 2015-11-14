@@ -1,11 +1,1 @@
-bin
-build
-include
-lib
-.Python
 *.pyc
-*.project
-*.pydevproject
-*.pyo
-*.mp3
-*.swp
