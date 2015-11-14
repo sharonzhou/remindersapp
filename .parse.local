@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "remindersapp"
+    },
+    "remindersapp": {
+      "applicationId": "3W4wQceD5kWim1mprKuzQNkNDRxfCJ0S0vZYDDxr"
+    }
+  }
+}
