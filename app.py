@@ -1,23 +1,23 @@
-from flask import Flask
-from flask import request
-from flask import render_template
+from flask import Flask, request, redirect, render_template
 import os
 from random import choice
-
-
+import twilio.twiml
+ 
 app = Flask(__name__)
-
+ 
 # Try adding your own number to this list!
 callers = {
-    "+19133784671": "Yuqi"
+    "+14158675309": "Curious George",
+    "+14158675310": "Boots",
+    "+14158675311": "Virgil",
 }
-
+ 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html')   
 
-@app.route("/sms", methods=['GET', 'POST'])
-def hello_word():
+@app.route("/hello", methods=['GET', 'POST'])
+def sms():
     """Respond and greet the caller by name."""
  
     from_number = request.values.get('From', None)
@@ -30,7 +30,7 @@ def hello_word():
     resp.message(message)
  
     return str(resp)
- 
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
 
