@@ -1,37 +1,28 @@
-from flask import Flask
-from flask import request
-from flask import render_template
-import os
-from random import choice
-
-
+from flask import Flask, request, redirect
+import twilio.twiml
+ 
 app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/sms', methods=['POST'])
-def sms():
-    r = twiml.Response()
-    if request.form['Body'].upper() == "HELP":
-        r.sms("Welcome to the text reminder app.  Text HELP" \
-                "to get your reminders.")
+ 
+# Try adding your own number to this list!
+callers = {
+    "+14244420724": "Yuqi GV",
+    "+19133784671": "Yuqi Cell"
+}
+ 
+@app.route("/", methods=['GET', 'POST'])
+def hello_world():
+    """Respond and greet the caller by name."""
+ 
+    from_number = request.values.get('From', None)
+    if from_number in callers:
+        message = callers[from_number] + ", thanks for the message!"
     else:
-        r.sms(choice(reminders))
-    return str(r)
-
-reminders = [
-    'Have you taken your medication today?',
-    'Have you written in your journal today?',
-    'Have you called your parents lately?']
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-
-    if port == 5000:
-        app.debug = True
-
-    app.run(host='0.0.0.0', port=port)
+        message = "Hey you, thanks for the message!"
+ 
+    resp = twilio.twiml.Response()
+    resp.message(message)
+ 
+    return str(resp)
+ 
+if __name__ == "__main__":
+    app.run(debug=True)
