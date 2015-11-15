@@ -1,6 +1,5 @@
-# remindersapp
-=======
 # Text Reminders App
+
 SMS app periodically texting you to ask if you've completed a certain task. Built during Hack Harvard 2015.
 
 Text (913)489-7538 to use the mobile experience.
